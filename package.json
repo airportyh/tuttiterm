@@ -1,0 +1,28 @@
+{
+   "name": "tuttiterm",
+   "description": "Tutti in your terminal. A CLI interface in your terminal for Tutti - the multi-browser interactive Javascript shell.",
+   "tags": [
+       "command line",
+       "cli",
+       "node",
+       "browser"
+   ],
+   "version": "0.0.1",
+   "author": {
+      "name" : "Toby Ho", 
+      "email" : "airportyh@gmail.com",
+      "url" : "http://tobyho.com"  
+   },
+   "repository": {
+       "type": "git",
+       "url": "http://github.com/airportyh/tuttiterm.git"
+   },
+   "bugs": "http://github.com/airportyh/tuttiterm/issues",
+   "engines": [
+       "node >= 0.4.1"
+   ],
+   "main": "term.js",
+   "license" : "MIT",
+   "dependencies": {},
+    "bin" : { "tuttiterm" : "./term.js" }
+}
