@@ -11,6 +11,12 @@ function printUsage(){
     console.log('See http://tutti.tobyho.com for info on Tutti.')
 }
 
+function red(s){ return ["\033[31m", s, "\033[0m"].join('') }
+function green(s){ return ["\033[32m", s, "\033[0m"].join('') }
+function cyan(s){ return ["\033[36m", s, "\033[0m"].join('') }
+function yellow(s){ return ["\033[33m", s, "\033[0m"].join('') }
+function blue(s){ return ["\033[34m", s, "\033[0m"].join('') }
+
 function isArray(obj){
 	return Object.prototype.toString.call(obj) === '[object Array]'
 }
@@ -127,17 +133,18 @@ var ctrl = {
             rli.output.clearLine(1)
             msg = JSON.parse(msg)
             if ('announcement' in msg)
-                writeln(msg.announcement.replace(/<br>/g, ''))
+                writeln(yellow(msg.announcement.replace(/<br>/g, '')))
             else if('command' in msg)
                 writeln('> ' + msg.command)
             else if('reply' in msg)
-                writeln(msg.browser + ' => ' + msg.reply)
+                writeln(msg.browser + ' => ' + green(msg.reply))
             else if('console' in msg)
-                writeln(msg.browser + ' : ' + msg.console)
+                writeln(msg.browser + ' : ' + blue(msg.console))
             else if('error' in msg)
-                writeln(msg.browser + ' => ' + msg.error)
+                writeln(msg.browser + ' => ' + red(msg.error))
             else if('browsers' in msg)
-                writeln('Logged in browsers: ' + (msg.browsers.join(', ') || 'none'))
+                writeln(yellow('Logged in browsers: ' + 
+                    (msg.browsers.join(', ') || 'none')))
         }catch(e){}
     },
     __proto__: states.init
