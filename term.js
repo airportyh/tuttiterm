@@ -2,7 +2,7 @@ var net = require('net'),
     readline = require('readline'),
     socket = new net.Socket(),
     state = 'init'
-    Version = '0.0.1'
+    Version = '0.0.2'
 
 function printUsage(){
     console.log('Usage:')
