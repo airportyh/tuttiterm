@@ -2,7 +2,7 @@ var net = require('net'),
     readline = require('readline'),
     socket = new net.Socket(),
     state = 'init'
-    Version = '0.0.2'
+    Version = '0.0.3'
 
 function printUsage(){
     console.log('Usage:')
@@ -137,11 +137,11 @@ var ctrl = {
             else if('command' in msg)
                 writeln('> ' + msg.command)
             else if('reply' in msg)
-                writeln(msg.browser + ' => ' + green(msg.reply))
+                writeln(yellow(msg.browser + ' => ') + green(msg.reply))
             else if('console' in msg)
-                writeln(msg.browser + ' : ' + blue(msg.console))
+                writeln(yellow(msg.browser + ' : ') + blue(msg.console))
             else if('error' in msg)
-                writeln(msg.browser + ' => ' + red(msg.error))
+                writeln(yellow(msg.browser + ' => ') + red(msg.error))
             else if('browsers' in msg)
                 writeln(yellow('Logged in browsers: ' + 
                     (msg.browsers.join(', ') || 'none')))
